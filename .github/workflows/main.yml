@@ -4,7 +4,7 @@ on:  workflow_dispatch
   
 
 jobs:
-  build:
+  dockerLogin:
     runs-on: self-hosted
 
     steps:
@@ -17,3 +17,15 @@ jobs:
           registry: ghcr.io
           username: abhishekg2244  # or ${{ github.actor }}
           password: ${{ secrets.GHCR_PAT }}
+          
+  dockerbuildandpush:
+    runs-on: self-hosted
+    steps:
+      - name: Build and Push Docker Image to GHCR
+        uses: mr-smithers-excellent/docker-build-push@v6
+        with:
+          image: ghcr.io/${{ github.actor }}/myapp
+          tags: latest
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GHCR_PAT }} 
