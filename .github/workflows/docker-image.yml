@@ -15,6 +15,6 @@ jobs:
       - name: Log in to Docker Hub
         uses: docker/login-action@v3
         with:
-          username: ${{ vars.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
+          username: abhishekg2244
+          password: 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
 
