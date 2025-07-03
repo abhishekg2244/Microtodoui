@@ -18,14 +18,40 @@ jobs:
           username: abhishekg2244  # or ${{ github.actor }}
           password: ${{ secrets.GHCR_PAT }}
           
+  # dockerbuildandpush:
+  #   runs-on: self-hosted
+  #   steps:
+  #     - name: Build and Push Docker Image to GHCR
+  #       uses: mr-smithers-excellent/docker-build-push@v6
+  #       with:
+  #         image: ghcr.io/${{ github.actor }}/myapp
+  #         tags: latest
+  #         registry: ghcr.io
+  #         username: ${{ github.actor }}
+  #         password: ${{ secrets.GHCR_PAT }} 
+  
+ 
+
+
+
   dockerbuildandpush:
-    runs-on: self-hosted
+    runs-on: self-hosted  # or use ubuntu-latest
+
     steps:
-      - name: Build and Push Docker Image to GHCR
-        uses: mr-smithers-excellent/docker-build-push@v6
-        with:
-          image: ghcr.io/${{ github.actor }}/myapp
-          tags: latest
-          registry: ghcr.io
-          username: ${{ github.actor }}
-          password: ${{ secrets.GHCR_PAT }} 
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      # - name: Log in to GitHub Container Registry
+      #   run: echo "${{ secrets.GHCR_PAT }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+
+      - name: Build Docker Image
+        run: |
+          docker build -t myapp .
+
+      - name: Tag Docker Image
+        run: |
+          docker tag myapp ghcr.io/${{ github.actor }}/myapp:latest
+
+      - name: Push Docker Image
+        run: |
+          docker push ghcr.io/${{ github.actor }}/myapp:latest
