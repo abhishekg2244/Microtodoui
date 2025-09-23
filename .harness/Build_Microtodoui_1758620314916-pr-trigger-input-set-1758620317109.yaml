@@ -1,0 +1,14 @@
+inputSet:
+  name: Build_Microtodoui_1758620314916-pr-trigger-input-set
+  identifier: Build_Microtodoui_1758620314916prtriggerinputset
+  orgIdentifier: default
+  projectIdentifier: defualt
+  pipeline:
+    identifier: Build_Microtodoui_1758620314916
+    properties:
+      ci:
+        codebase:
+          build:
+            type: PR
+            spec:
+              number: <+trigger.prNumber>
