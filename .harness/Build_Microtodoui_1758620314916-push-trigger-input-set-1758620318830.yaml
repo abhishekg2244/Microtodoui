@@ -1,0 +1,14 @@
+inputSet:
+  name: Build_Microtodoui_1758620314916-push-trigger-input-set
+  identifier: Build_Microtodoui_1758620314916pushtriggerinputset
+  orgIdentifier: default
+  projectIdentifier: defualt
+  pipeline:
+    identifier: Build_Microtodoui_1758620314916
+    properties:
+      ci:
+        codebase:
+          build:
+            type: branch
+            spec:
+              branch: <+trigger.branch>
