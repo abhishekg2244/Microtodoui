@@ -24,7 +24,7 @@ jobs:
 
       - name: Build Docker Image
         run: |
-          docker build -t ghcr.io/${{ github.actor }}/argcd:latest .
+          docker build -t ghcr.io/${{ github.actor }}/argocd:latest .
 
       - name: Push Docker Image
         run: |
