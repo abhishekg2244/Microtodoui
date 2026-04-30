@@ -16,7 +16,7 @@ jobs:
         with:
           registry: ghcr.io
           username: abhishekg2244  # or ${{ github.actor }}
-          password: ${{ secrets.GHCR_PAT }}
+          password: BeehiveWasp@9161!
           
   # dockerbuildandpush:
   #   runs-on: self-hosted
@@ -35,7 +35,7 @@ jobs:
 
 
   dockerbuildandpush:
-    runs-on: self-hosted  # or use ubuntu-latest
+    runs-on: ubuntu-latest # or use ubuntu-latest
 
     steps:
       - name: Checkout Code
