@@ -78,7 +78,7 @@ jobs:
       # ✏️ Update Image in YAML
       - name: Update Manifest
         run: |
-          cd my-app-manifests
+          cd my-app-manifests/base
           sed -i 's|image: .*|image: ghcr.io/${{ github.actor }}/argocd:'"$IMAGE_TAG"'|' deployment.yaml
 
       # 📤 Commit & Push
