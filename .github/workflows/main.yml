@@ -41,7 +41,7 @@ jobs:
        # 📦 Clone Manifest Repository
       - name: Clone Manifest Repo
         run: |
-          git clone https://x-access-token:${{ secrets.GH_PAT }}@github.com/abhishekg2244/my-app-manifests.git
+          git clone https://x-access-token:${{ secrets.GHPAT }}@github.com/abhishekg2244/my-app-manifests.git
 
       # ✏️ Update Kubernetes Manifest
       - name: Update Manifest
